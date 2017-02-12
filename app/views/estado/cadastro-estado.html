@@ -1,0 +1,23 @@
+<div  ng-controller="CadastroEstadoController as vm" novalidate>
+    <pd-super-crud titulo="Cadastro de Estado"
+                        class-icone="fa fa-edit"
+                        service="vm.pdService">
+
+        <pd-crud-body>
+            <pd-input-text
+                    label="Nome"
+                    ng-model="vm.pdService.entidade.nome"
+                    colspan="3"
+                    ng-required="true">
+            </pd-input-text>
+
+            <!--<pd-date-->
+                    <!--label="Data de Cadastro"-->
+                    <!--ng-model="vm.pdService.entidade.dataCadastro"-->
+                    <!--colspan="3"-->
+                    <!--ng-required="true">-->
+            <!--</pd-date>-->
+        </pd-crud-body>
+    </pd-super-crud>
+
+</div>

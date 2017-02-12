@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Introduction to AngularJS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ESTILO -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="app/css/pd-prova.css">
+    <link rel="stylesheet" href="node_modules/angular-ui-grid/ui-grid.css">
+    <link rel="stylesheet" href="node_modules/angular-toastr/dist/angular-toastr.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+    <link rel="stylesheet" href="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
+
+    <!-- FIM ESTILO -->
+
+    <!-- EXPORTS EXTERNOS -->
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="node_modules/angular-messages/angular-messages.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="node_modules/oclazyload/dist/ocLazyLoad.js"></script>
+    <script src="node_modules/angular-ui-grid/ui-grid.js"></script>
+    <script src="node_modules/angular-material/angular-material.js"></script>
+    <script src="node_modules/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.js"></script>
+    <script src="node_modules/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+    <!-- FIM EXPORTS EXTERNOS -->
+
+    <!-- EXPORTS INTERNOS -->
+    <script src="app/config/pd-prova.module.js"></script>
+    <script src="app/controller/index.controller.js"></script>
+    <script src="arquitetura/template/ng-messages.html"></script>
+    <script src="app/config/pd-prova.config.js"></script>
+    <script src="arquitetura/services/pd-alert.service.js"></script>
+    <script src="arquitetura/directives/pd-input-text/pd-input-text.directive.js"></script>
+    <script src="arquitetura/directives/pd-date/pd-date.directive.js"></script>
+    <!--<script src="arquitetura/directives/angular-course-select/angular-course-select.directive.js"></script>-->
+    <!--<script src="arquitetura/directives/angular-course-crud/angular-course-grud.diretive.js"></script>-->
+    <script src="arquitetura/services/pd.service.js"></script>
+    <script src="app/views/estado/estado.service.js"></script>
+    <script src="arquitetura/directives/pd-super-crud/pd-super-crud.directive.js"></script>
+    <script src="arquitetura/services/pd-storage.service.js"></script>
+
+
+
+    <!-- FIM EXPORTS INTERNOS -->
+
+</head>
+<body ng-app="pdProva" ng-controller="IndexController as vm">
+
+<div class="navbar navbar-inverse navbar-fixed-left">
+    <a class="navbar-brand">PRODATA</a>
+    <ul class="nav navbar-nav">
+        <li><a ui-sref="cadastroEstado">Cadastro Estado</a></li>
+        <li><a ui-sref="pesquisaEstado">Pesquisa Estado</a></li>
+        <li><a ui-sref="cadastroCidade">Cadastro Cidade</a></li>
+        <li><a ui-sref="pesquisaCidade">Pesquisa Cidade</a></li>
+        <li><a ui-sref="cadastroBairro">Cadastro Bairro</a></li>
+        <li><a ui-sref="pesquisaBairro">Pesquisa Bairro</a></li>
+    </ul>
+</div>
+<div class="container">
+    <div ui-view></div>
+</div>
+</body>
+</html>
