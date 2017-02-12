@@ -4,7 +4,7 @@
     angular.module('pdProva')
         .service('EstadoService', EstadoService);
 
-    function EstadoService(PdService) {
+    function EstadoService(PdService,$state) {
         this.getPdService = getPdService;
 
         function getPdService() {
@@ -15,11 +15,27 @@
 
             ps.gridOptions = {
                 data: ps.provider,
+                columnDefs: [
+                    {name: 'Nome', field: 'nome'},
+                    {
+                        name: 'Data cadastro',
+                        field: 'dataCadastro',
+                        width: 150,
+                        cellTemplate: 'arquitetura/template/cell-template-date.html'
+                    },
+                ],
                 enableColumnMenus: false,
                 enableRowSelection:false
             };
 
+            ps.editar = editar;
+
+            function editar(index) {
+                $state.go('cadastroEstado', {id:index});
+            }
+
             return ps;
+
         }
 
     }

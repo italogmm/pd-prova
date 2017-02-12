@@ -16,8 +16,7 @@
                 ngModel:'=',
                 colspan:'@',
                 service:'=',
-                exibeBotaoEditar:'=',
-                exibeBotaoExcluir:'=',
+                exibeBotoes:'=',
             }
         };
 
@@ -28,6 +27,16 @@
 
             $scope.inputName = 'pdInputText' + $scope.$id;
 
+
+            if($scope.exibeBotoes){
+                $scope.service.gridOptions.columnDefs.push({
+                    name: '', field: 'excluir', width: 80,
+                    cellTemplate: 'arquitetura/template/cell-template-botoes.html',
+                    onClickExcluir: $scope.service.excluir,
+                    onClickEditar: $scope.service.editar,
+
+                })
+            }
         }
     }
 

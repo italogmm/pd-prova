@@ -35,7 +35,6 @@
             }
 
             function salvar() {
-
                 var listaEntidadeStorageRef = self.listaEntidadeStorageRef;
                 var provider = PdStorageService.get(listaEntidadeStorageRef) || [];
 
@@ -58,8 +57,13 @@
 
             }
 
-            function excluir() {
+            function excluir(index) {
+                var listaEntidadeStorageRef = self.listaEntidadeStorageRef;
+                var provider = PdStorageService.get(listaEntidadeStorageRef) || [];
 
+                provider.splice(index-1,1);
+
+                PdStorageService.set(listaEntidadeStorageRef, provider);
 
             }
 
@@ -68,7 +72,23 @@
             }
 
             function pesquisar() {
+                var listaEntidadeStorageRef = self.listaEntidadeStorageRef;
+                var provider = PdStorageService.get(listaEntidadeStorageRef) || [];
 
+
+                var listaFiltrada = [];
+
+                if(self.entidade.nome){
+                    for(var x = 0, y = provider.length; x < y; x ++){
+                        if(provider[x].nome.indexOf(self.entidade.nome)){
+                            listaFiltrada.push(provider[x]);
+                        }
+                    }
+                }
+
+                PdAlertService.showSuccess('Pesquisando...');
+
+                return listaFiltrada;
             }
 
             function generateId(provider) {
@@ -84,7 +104,6 @@
                 if(listaEntidadeStorageRef){
                     return PdStorageService.get(listaEntidadeStorageRef);
                 }
-
             }
         };
     }

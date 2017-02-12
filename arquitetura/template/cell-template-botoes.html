@@ -1,13 +1,12 @@
 <div class="ui-grid-cell-contents">
     <button class="btn btn-warning btn-xs"
-            ng-click="col.colDef.onClick(row.entity.id)"
-            type="button">
-        Editar
+            ng-click="col.colDef.onClickEditar(row.entity.id)"
+            type="button" alt="Editar">
         <i class="fa fa-edit"></i>
-    </button>
-    <button class="btn btn-danger btn-xs"
-            ng-click="col.colDef.onClickExcluir(rowRenderIndex)"
-            type="button">
-        <i class="fa fa-trash"></i>
+        <button class="btn btn-danger btn-xs"
+                ng-click="col.colDef.onClickExcluir(row.entity.id)"
+                type="button" alt="Excluir">
+            <i class="fa fa-trash"></i>
+        </button>
     </button>
 </div>

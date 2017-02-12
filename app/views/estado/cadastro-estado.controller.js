@@ -6,7 +6,7 @@
         .controller('CadastroEstadoController', CadastroEstadoController);
 
 
-    function CadastroEstadoController(EstadoService,$stateParams) {
+    function CadastroEstadoController(EstadoService,$stateParams,PdStorageService) {
         var vm = this;
 
         vm.pdService = EstadoService.getPdService();
@@ -15,16 +15,16 @@
 
         function activate() {
             if($stateParams.id){
-                var listaEstado = vm.pdService.data;
+                var listaEstado = vm.pdService.provider;
 
                 for(var x = 0, y = listaEstado.length; x < y; x ++){
                     if(listaEstado[x].id.toString() === $stateParams.id){
                         vm.pdService.entidade = listaEstado[x];
-                        break;
                     }
                 }
             }
         }
     }
+
 })();
 

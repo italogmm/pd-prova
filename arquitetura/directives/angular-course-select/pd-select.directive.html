@@ -11,12 +11,15 @@
                    ng-if="ngRequired"></i>
             </label>
 
-            <input ng-model="ngModel"
-                   class="form-control"
-                   ng-required="ngRequired"
-                   type="date"
-                   name="{{::inputName}}"
-            >
+            <select ng-model="ngModel"
+                    class="form-control"
+                    ng-required="ngRequired"
+                    name="{{::inputName}}">
+
+                <option ng-repeat="item in ::provider"
+                        value="{{::item[propriedadeValor]}}">
+                </option>
+            </select>
         </div>
 
         <div ng-messages="formCtrl[inputName].$error"

@@ -14,18 +14,14 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="form-group">
-                    <button class="btn btn-info">Pesquisar estado</button>
+                    <button  ng-click="vm.pdService.pesquisar()" class="btn btn-info">Pesquisar estado</button>
                 </div>
             </div>
         </div>
     </div>
-    <!--<div ui-grid="vm.gridOptions"-->
-         <!--&gt;</div>-->
 
     <pd-grid service="vm.pdService"
-             exibeBotaoEditar="true"
-             exibeBotaoExcluir="true">
-
+             exibe-botoes="true">
     </pd-grid>
 
 </form>

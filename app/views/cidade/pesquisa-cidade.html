@@ -7,18 +7,25 @@
                     colspan="3"
                     ng-required="true">
             </pd-input-text>
+
+            <pd-select  label="Estado"
+                        ng-model="vm.pdService.entidade.estado"
+                        ng-required="true"
+                        provider="vm.pdService.listaEstado">
+
+            </pd-select>
         </div>
 
         <div class="row">
             <div class="col-md-3">
                 <div class="form-group">
-                    <button class="btn btn-info">Pesquisar Cidade</button>
+                    <button class="btn btn-info" ng-click="vm.pdService.pesquisar()">Pesquisar Cidade</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <pd-grid service="vm.pdService" >
+    <pd-grid service="vm.pdService" exibe-botoes="true">
 
     </pd-grid>
 </form>

@@ -12,13 +12,13 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="form-group">
-                    <button class="btn btn-info">Pesquisar Cidade</button>
+                    <button class="btn btn-info" ng-click="vm.pdService.pesquisar()">Pesquisar Bairro</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <pd-grid service="vm.pdService" >
+    <pd-grid service="vm.pdService" exibe-botoes="true" >
 
     </pd-grid>
 </form>
