@@ -10,10 +10,14 @@
         function getPdService() {
             var ps = new PdService('estadoController');
 
-
             ps.listaEntidadeStorageRef = 'listaEstado';
-            //ps.metodoPesquisar = 'pesquisarPessoas';
+            ps.provider = ps.getAll(ps.listaEntidadeStorageRef);
 
+            ps.gridOptions = {
+                data: ps.provider,
+                enableColumnMenus: false,
+                enableRowSelection:false
+            };
 
             return ps;
         }

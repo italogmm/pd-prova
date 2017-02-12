@@ -27,8 +27,15 @@
             self.excluir = excluir;
             self.limpar = limpar;
             self.pesquisar = pesquisar;
+            self.getAll = getAll;
+
+            activate()
+
+            function activate() {
+            }
 
             function salvar() {
+
                 var listaEntidadeStorageRef = self.listaEntidadeStorageRef;
                 var provider = PdStorageService.get(listaEntidadeStorageRef) || [];
 
@@ -61,14 +68,7 @@
             }
 
             function pesquisar() {
-                return $http.post('rest/'+self.controller+'/'+self.metodoPesquisar, self.entidade)
-                    .then(pesquisarResult);
 
-                function pesquisarResult(response) {
-                    self.provider = response.data;
-
-                    return response.data;
-                }
             }
 
             function generateId(provider) {
@@ -78,6 +78,13 @@
                     var idInc = provider[provider.length-1].id;
                     return ++idInc;
                 }
+            }
+
+            function getAll(listaEntidadeStorageRef) {
+                if(listaEntidadeStorageRef){
+                    return PdStorageService.get(listaEntidadeStorageRef);
+                }
+
             }
         };
     }

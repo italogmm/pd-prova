@@ -10,7 +10,7 @@
         return {
             restrict: 'AE',
             require:'^form',
-            templateUrl:'arquitetura/directives/pd-input-text/pd-input-text.directive.html',
+            templateUrl:'arquitetura/directives/pd-input-text/pd-input-text.html',
             link: link,
             scope: {
                 label:'@',

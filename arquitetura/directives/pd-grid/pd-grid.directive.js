@@ -3,20 +3,21 @@
 
     angular
         .module('pdProva')
-        .directive('pdAutoComplete', pdAutoComplete);
+        .directive('pdGrid', pdGrid);
 
 
-    function pdAutoComplete() {
+    function pdGrid() {
         return {
             restrict: 'AE',
-            require:'^form',
-            templateUrl:'arquitetura/directives/pd-auto-complete/pd-auto-complete.html',
+            templateUrl:'arquitetura/directives/pd-grid/pd-grid.html',
             link: link,
             scope: {
                 label:'@',
                 ngModel:'=',
-                ngRequired:'=',
-                colspan:'@'
+                colspan:'@',
+                service:'=',
+                exibeBotaoEditar:'=',
+                exibeBotaoExcluir:'=',
             }
         };
 

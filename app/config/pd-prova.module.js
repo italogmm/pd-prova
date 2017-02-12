@@ -10,7 +10,8 @@
                 'ui.grid',
                 'toastr',
                 'LocalStorageModule',
-                'ui.bootstrap']);
+                'ui.bootstrap',
+                'bootstrap3-typeahead']);
 })();
 
 

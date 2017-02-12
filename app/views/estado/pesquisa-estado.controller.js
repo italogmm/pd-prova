@@ -7,67 +7,45 @@
 
 
     //PdAlertService
-    function PesquisaEstadoController($scope,$rootScope,$state,$stateParams) {
+    function PesquisaEstadoController(EstadoService,$scope,$state) {
         var vm = this;
-        vm.title = 'PesquisaEstadoController';
-        vm.entidade = {};
 
-        vm.origem = [
-            {valor: 'Interna', descricao: 'Interno'},
-            {valor: 'Externa', descricao: 'Externo'}
-        ];
+        vm.pdService = EstadoService.getPdService();
 
-        vm.limpar = limpar;
-        vm.salvar = salvar;
+
+        vm.listaProdutos = vm.pdService.data;
+
+        vm.gridOptions = {
+            data: 'listaProdutos',
+            enableColumnMenus: false,
+            enableRowSelection:false,
+            columnDefs: [
+                {name: 'Nome', field: 'nome'},
+                {
+                    name: '', field: 'excluir', width: 120,
+                    cellTemplate: 'arquitetura/template/cell-template-botoes.html',
+                    onClick:editar,
+                    onClickExcluir: excluir
+                }
+            ]
+        };
 
         activate();
 
         function activate() {
-            vm.entidade.origem = 'Interna';
-
-            if($stateParams.id){
-                vm.entidade = $rootScope.listaProdutos[$stateParams.id];
-            }
         }
 
-        function limpar() {
-            vm.entidade = {};
+        function pesquisaEstado() {
 
-            $scope.formProduto.$setUntouched();
         }
 
-        function salvar() {
-
-            if ($scope.formProduto.$invalid) {
-                angular.forEach($scope.formProduto.$error, function (errorField) {
-                    for (var i = 0; i < errorField.length; i++) {
-                        errorField[i].$setTouched();
-                    }
-                });
-
-                PdAlertService.showError('Verifique os campos inválidos');
-                return;
-            }
-
-            var entidadeAux = vm.entidade;
-
-            excluir(vm.entidade);
-
-            $rootScope.listaProdutos.push(entidadeAux);
-
-            PdAlertService.showSuccess('Produto Cadastrado com Sucesso!');
-
-            limpar();
-
-            $state.go('pesquisaProduto');
+        function editar(index) {
+            $state.go('cadastroEstado', {id:index});
         }
 
-        function excluir(entidade) {
-            var index = $rootScope.listaProdutos.indexOf(entidade);
-
-            $rootScope.listaProdutos.splice(index,1);
+        function excluir(index) {
+            // TODO
         }
-
     }
 
 })();

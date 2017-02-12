@@ -10,9 +10,15 @@
         function getPdService() {
             var ps = new PdService('cidadeController');
 
-
             ps.listaEntidadeStorageRef = 'listaCidade';
-            //ps.metodoPesquisar = 'pesquisarPessoas';
+
+            ps.provider = ps.getAll(ps.listaEntidadeStorageRef);
+
+            ps.gridOptions = {
+                data: ps.provider || [],
+                enableColumnMenus: false,
+                enableRowSelection:false
+            };
 
             return ps;
         }

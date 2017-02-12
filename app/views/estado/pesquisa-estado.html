@@ -1,6 +1,31 @@
+
 <form name="formEstado" ng-controller="PesquisaEstadoController as vm" novalidate>
-    <div>
-        PESQUISA ESTADO
+
+    <div class="panel-body">
+        <div class="row" style="height: 120px">
+            <pd-input-text
+                    label="Nome"
+                    ng-model="vm.pdService.entidade.nome"
+                    colspan="3"
+                    ng-required="true">
+            </pd-input-text>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <button class="btn btn-info">Pesquisar estado</button>
+                </div>
+            </div>
+        </div>
     </div>
+    <!--<div ui-grid="vm.gridOptions"-->
+         <!--&gt;</div>-->
+
+    <pd-grid service="vm.pdService"
+             exibeBotaoEditar="true"
+             exibeBotaoExcluir="true">
+
+    </pd-grid>
 
 </form>

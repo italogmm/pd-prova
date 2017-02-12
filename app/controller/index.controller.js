@@ -13,6 +13,22 @@
 
         vm.salvar = salvar;
 
+        $scope.employee = {id: 0};
+        vm.editableEmployee = angular.copy($scope.employee);
+
+        $scope.departments = [
+          "Engineering",
+            "Marketing",
+            "Finance"
+        ];
+
+        $scope.programmingLanguages = [
+            "C",
+            "C++",
+            "Finance",
+            "Java"
+        ];
+
         iniciar();
 
         function iniciar() {
