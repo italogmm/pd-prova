@@ -22,7 +22,6 @@
         function salvar(entidade) {
             console.log(entidade.nome);
         }
-
     }
 
 })();
